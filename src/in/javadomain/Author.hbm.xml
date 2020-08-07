@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2015 7:17:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="in.javadomain.Author" table="AUTHOR">
+		<id name="authorID" type="int">
+			<column name="AUTHORID" />
+			<generator class="assigned" />
+		</id>
+		<property name="authorName" type="java.lang.String">
+			<column name="AUTHORNAME" />
+		</property>
+
+		<component name="SiteInfo">
+			<property name="siteName" type="java.lang.String">
+				<column name="SITENAME" />
+			</property>
+			<property name="sitePurpose" type="java.lang.String">
+				<column name="SITEPURPOSE" />
+			</property>
+		</component>
+
+	</class>
+</hibernate-mapping>
+
+
+<!--  below entries are required when we use List/Set collection in the Author mapping class -->
+		<!-- <set name="sitePosts" table="SITE_POSTS"> <key column="ID" /> <composite-element 
+			class="in.javadomain.SitePosts" > <property name="postName" column="POST_NAME" 
+			type="string"></property> <property name="postedDate" column="POSTED_DATE" 
+			type="date"></property> </composite-element> </set> -->
+
+		<!-- <list name="sitePosts" table="SITE_POSTS"> <key column="ID" /> <list-index 
+			column="ORDER_COL"></list-index> <composite-element class="in.javadomain.SitePosts" 
+			> <property name="postName" column="POST_NAME" type="string"></property> 
+			<property name="postedDate" column="POSTED_DATE" type="date"></property> 
+			</composite-element> </list> -->
